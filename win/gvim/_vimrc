@@ -1,0 +1,133 @@
+" Vim Plugin
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox' 
+Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'      " 主题
+Plug 'preservim/nerdcommenter'    " 注释
+" Plug 'vim-airline/vim-airline'  " 主题
+Plug 'easymotion/vim-easymotion'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }    " LeaderF 文件搜索
+call plug#end() 
+
+""""""""""""""""""""""""""""""
+"     leader map binding     "
+""""""""""""""""""""""""""""""
+let mapleader = ";"
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>l :source ~/.vimrc<CR>  " Vim 配置热加载
+nnoremap <Leader>g :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+"   Leaderf
+map <C-p> :LeaderfFile<CR>  " 快速查找文件
+map <C-b> :Leaderf buffer<CR>
+map <C-m> :Leaderf mru<CR>
+" preservim/nerdcommente
+let g:NERDSpaceDelims = 1
+
+""""""""""""""""""""""""""""""
+"     与操作系统交互         "
+""""""""""""""""""""""""""""""
+set clipboard=unnamedplus    " 使用系统剪切版 -> Vim
+set clipboard=unnamed      " Vim -> 系统剪切版
+
+
+
+
+""""""""""""""""""""""""""""""
+"     Vim Theme 主题         "
+""""""""""""""""""""""""""""""
+colorscheme gruvbox   " 暗金色主题
+
+""" lightline.vim
+if !has('gui_running')
+      set t_Co=256
+endif
+set guioptions-=L     " 隐藏左侧滚动条
+set guioptions-=r     " 隐藏右侧滚动条
+set guioptions-=b     " 隐藏底部滚动条
+set cursorline        " 突出显示当前行
+set laststatus=2
+let g:lightline = {
+          \ 'colorscheme': 'wombat',
+      \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
+      \ },
+      \ 'component': {
+          \   'charvaluehex': '0x%B'
+      \ },
+      \ }
+" let g:lightline = {
+       " \ 'colorscheme': 'wombat',
+   " \ }
+
+set nu
+set guifont=Consolas:h14  " Window 下的字体
+autocmd GUIEnter * simalt ~x  " Window 下自动全屏最大
+
+" about easyMotion
+" let g:EasyMotion_smartcase = 1  " 忽略大小写搜索
+nmap f <Plug>(easymotion-s)
+
+
+" common setting
+set ttimeout ttimeoutlen=10  " 使 Vim 快捷响应
+set clipboard=unnamedplus    
+set clipboard=unnamed      
+set undofile          " 撤销与恢复撤销
+set history=1000      " 撤销与恢复撤销的最大记录数, 且文件退出重进依然生效
+set expandtab         " 设置 Tab
+set tabstop=4         " 设置 Tab
+set softtabstop=4     " 设置缩进
+set shiftwidth=4      " 设置缩进
+set vb t_vb=          " 取消 gvim 的错误响铃提示
+au GuiEnter * set t_vb=
+set go=               " 不要图形按钮
+set novisualbell      " 不要闪烁
+set gcr=a:blinkon0    " 取消光标闪烁
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示
